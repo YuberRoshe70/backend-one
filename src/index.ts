@@ -1,9 +1,17 @@
 import express, {Request, Response} from 'express';
 const app = express();
-const PORT = 3000;
+const PORT =  process.env.PORT || 8000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!999999999999');
+//app.use(express.json);
+const products = [{"title":"kiwi"},{"title":"orange"} ]
+const adresses = [{"value":"kiwioka 9"}, {"value":"turionu 290 "}]
+
+app.get('/products', (req: Request, res: Response) => {
+  res.send(products);
+});
+
+app.get('/adresses', (req: Request, res: Response) => {
+  res.send(products);
 });
 
 app.listen(PORT, () => {
